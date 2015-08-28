@@ -1,5 +1,5 @@
 # blink1-web-server
-A python web server to interface with a thingM blink(1) usb LED using python-eve and the blink(1) pypi library
+A python web server to interface with a ThingM blink(1) usb LED using python Flask and the blink(1) pypi library
 
 Python-eve: http://python-eve.org/ 
 
