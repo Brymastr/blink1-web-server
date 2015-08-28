@@ -21,7 +21,7 @@ def unstable():
 def activate(r, g, b):
     print("activate")
     with blink1() as b1:
-        for i in range(10):
+        for i in range(5):
             b1.fade_to_color(100, (r, g, b))
             time.sleep(.8)
             b1.fade_to_color(100, (0, 0, 0))
