@@ -1,14 +1,12 @@
 from flask import Flask
-from light import blink
+import socket
+from routes import api
+
+ip = socket.gethostbyname(socket.gethostname())
 
 app = Flask(__name__)
+app.register_blueprint(api, url_prefix='/build')
 
 
-@app.route("/blink", methods=['POST'])
-def hell():
-    blink()
-    return "success"
-
-
-if __name__ == '__main__':
-    app.run()
+if __name__ == "__main__":
+    app.run(host=ip)
