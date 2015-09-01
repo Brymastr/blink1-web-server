@@ -1,28 +1,36 @@
 from blink1.blink1 import blink1
 import time
 
+from blink1.blink1 import Blink1
+b2 = Blink1()
+
 
 def busy():
-    activate(232, 66, 244)
+    activate('purple')
 
 
 def success():
-    activate(22, 226, 172)
+    activate('cyan')
 
 
 def failure():
-    activate(232, 34, 0)
+    activate('red')
 
 
 def unstable():
-    activate(232, 146, 0)
+    activate('orange')
 
 
-def activate(r, g, b):
-    print("activate")
-    with blink1() as b1:
-        for i in range(5):
-            b1.fade_to_color(100, (r, g, b))
-            time.sleep(.8)
-            b1.fade_to_color(100, (0, 0, 0))
-            time.sleep(.8)
+def activate(color):
+    print("activate: " + color)
+    try:
+        # b2.fade_to_rgb(1000, 255, 255, 255)
+        with blink1() as b1:
+            for i in range(5):
+                b1.fade_to_color(100, color)
+                time.sleep(.8)
+                b1.fade_to_color(100, 'black')
+                time.sleep(.8)
+    except Exception as err:
+        print(type(err))
+        raise
