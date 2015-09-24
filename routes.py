@@ -1,10 +1,7 @@
 from flask import Blueprint, request, Response, stream_with_context
-from celery import Celery
 import light
 
 api = Blueprint('buildAPI', __name__)
-
-celery = Celery()
 
 
 @api.route("/busy", methods=['POST'])
